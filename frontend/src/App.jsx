@@ -7,10 +7,16 @@ function App() {
   const [name, setName] = useState()
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
-  //axios.defaults.withCredentials = true;
+  axios.defaults.withCredentials = true;
+  const config = {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+    }
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:3001/register", {name, email, password}, {withCredentials: true})
+    axios.post("https://mern-app-deploy-api.vercel.app/register", {name, email, password}, config)
     .then(result => console.log(result))
     .catch(err => console.log(err))
   }
