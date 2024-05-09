@@ -16,7 +16,7 @@ function App() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("https://mern-app-deploy-api.vercel.app/register", {name, email, password}, config)
+    axios.post("https://mern-app-deploy-api.vercel.app/register", {name, email, password})
     .then(result => console.log(result))
     .catch(err => console.log(err))
   }
