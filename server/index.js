@@ -4,12 +4,13 @@ const cors = require('cors')
 const RegisterModel = require('./models/Register')
 
 const app = express()
-app.use(cors({
-    origin: 'https://mern-app-deploy-frontend.vercel.app',
-    methods: ['GET', 'POST'],
-    credentials: true // If you're using cookies or sessions
-}));
-
+app.use(cors(
+    {
+        origin: ['https://mern-app-deploy-frontend.vercel.app'],
+        methods: ["POST", "GET"],
+        credentials: true
+    }
+));
 app.use(express.json())
 
 mongoose.connect('mongodb+srv://lorshannarayanasamy:dwOBpKEMmicLIBPR@cluster0.0vpadif.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster0');
